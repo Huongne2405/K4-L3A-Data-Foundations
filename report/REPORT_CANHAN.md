@@ -96,7 +96,7 @@ platform darwin -- Python 3.13.7, pytest-9.1.1, pluggy-1.6.0 -- /Library/Framewo
 cachedir: .pytest_cache
 rootdir: /Users/huongne/K4-L3A-Data-Foundations
 plugins: anyio-4.12.1
-collected 42 items                                                                                                                                  
+collected 42 items
 
 tests/test_solution.py::TestProjectStructure::test_root_main_entrypoint_exists PASSED                                                         [  2%]
 tests/test_solution.py::TestProjectStructure::test_src_package_exists PASSED                                                                  [  4%]
@@ -195,25 +195,25 @@ Tôi dùng `compute_similarity(_mock_embed(câu A), _mock_embed(câu B))`; để
 
 Các cặp sau được diễn đạt từ quy định đào tạo đã thu thập và **được chọn sau khi khảo sát điểm**. Cột dự đoán thể hiện nhận định theo nội dung, không phải dự đoán độc lập trước khi chạy.
 
-| Cặp | Câu A | Câu B | Dự đoán | Điểm thực tế | Đúng? |
-| --- | ----- | ----- | ------- | ------------ | ----- |
-| 1 | Giới hạn tín chỉ học kỳ chính của sinh viên không bị cảnh báo là bao nhiêu? | Sinh viên không thuộc diện cảnh báo được đăng ký nhiều nhất bao nhiêu tín chỉ? | Cao | 0,3802 | Có |
-| 2 | Sinh viên phải nộp đơn xin trở lại học chậm nhất một tuần trước kỳ mới. | Trước kỳ học mới một tuần, sinh viên cần nộp đơn xin trở lại học theo quy định. | Cao | 0,3274 | Có |
-| 3 | Đạt trình độ năm thứ hai của chương trình thứ nhất là điều kiện đăng ký chương trình thứ hai. | Theo quy chế đào tạo, sinh viên chỉ được học chương trình thứ hai khi đã được xếp trình độ năm hai. | Cao | 0,3666 | Có |
-| 4 | Theo quy chế đào tạo, nếu một thành viên hội đồng cho dưới 5, điểm bảo vệ tối đa là 4,9. | Một điểm chấm dưới 5 từ hội đồng làm điểm bảo vệ bị giới hạn ở 4,9. | Cao | 0,3081 | Có |
-| 5 | ĐHBK Hà Nội xét tốt nghiệp ba đợt mỗi năm. | Theo quy chế đào tạo, số đợt xét tốt nghiệp hằng năm của ĐHBK Hà Nội là ba. | Cao | 0,3488 | Có |
+| Cặp | Câu A                                                                                         | Câu B                                                                                               | Dự đoán | Điểm thực tế | Đúng? |
+| --- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | ------- | ------------ | ----- |
+| 1   | Giới hạn tín chỉ học kỳ chính của sinh viên không bị cảnh báo là bao nhiêu?                   | Sinh viên không thuộc diện cảnh báo được đăng ký nhiều nhất bao nhiêu tín chỉ?                      | Cao     | 0,3802       | Có    |
+| 2   | Sinh viên phải nộp đơn xin trở lại học chậm nhất một tuần trước kỳ mới.                       | Trước kỳ học mới một tuần, sinh viên cần nộp đơn xin trở lại học theo quy định.                     | Cao     | 0,3274       | Có    |
+| 3   | Đạt trình độ năm thứ hai của chương trình thứ nhất là điều kiện đăng ký chương trình thứ hai. | Theo quy chế đào tạo, sinh viên chỉ được học chương trình thứ hai khi đã được xếp trình độ năm hai. | Cao     | 0,3666       | Có    |
+| 4   | Theo quy chế đào tạo, nếu một thành viên hội đồng cho dưới 5, điểm bảo vệ tối đa là 4,9.      | Một điểm chấm dưới 5 từ hội đồng làm điểm bảo vệ bị giới hạn ở 4,9.                                 | Cao     | 0,3081       | Có    |
+| 5   | ĐHBK Hà Nội xét tốt nghiệp ba đợt mỗi năm.                                                    | Theo quy chế đào tạo, số đợt xét tốt nghiệp hằng năm của ĐHBK Hà Nội là ba.                         | Cao     | 0,3488       | Có    |
 
 ### Bộ dự đoán độc lập ban đầu
 
 Các dự đoán dưới đây được ghi trước khi tính điểm cho bộ cặp đầu tiên; đây là phần đối chiếu hợp lệ với yêu cầu dự đoán trước khi chạy.
 
-| Cặp | Câu A | Câu B | Dự đoán | Điểm thực tế | Đúng? |
-| --- | ----- | ----- | ------- | ------------ | ----- |
-| 1 | Sinh viên đăng ký học phần cho học kỳ mới. | Sinh viên đăng ký học phần cho học kỳ mới. | Cao | 1,0000 | Có |
-| 2 | Sinh viên chọn môn học cho học kỳ tiếp theo. | Người học đăng ký học phần ở kỳ sau. | Cao | -0,0218 | Không |
-| 3 | Sinh viên phải được cho phép nghỉ học tạm thời. | Nghỉ học tạm thời cần quyết định của nhà trường. | Cao | -0,1355 | Không |
-| 4 | Thư viện mở cửa cuối tuần. | Đồ án tốt nghiệp có điểm quá trình và điểm cuối kỳ. | Thấp | 0,0441 | Có |
-| 5 | Python là ngôn ngữ lập trình. | Sinh viên cần nộp đơn trở lại học trước kỳ mới. | Thấp | -0,1304 | Có |
+| Cặp | Câu A                                           | Câu B                                               | Dự đoán | Điểm thực tế | Đúng? |
+| --- | ----------------------------------------------- | --------------------------------------------------- | ------- | ------------ | ----- |
+| 1   | Sinh viên đăng ký học phần cho học kỳ mới.      | Sinh viên đăng ký học phần cho học kỳ mới.          | Cao     | 1,0000       | Có    |
+| 2   | Sinh viên chọn môn học cho học kỳ tiếp theo.    | Người học đăng ký học phần ở kỳ sau.                | Cao     | -0,0218      | Không |
+| 3   | Sinh viên phải được cho phép nghỉ học tạm thời. | Nghỉ học tạm thời cần quyết định của nhà trường.    | Cao     | -0,1355      | Không |
+| 4   | Thư viện mở cửa cuối tuần.                      | Đồ án tốt nghiệp có điểm quá trình và điểm cuối kỳ. | Thấp    | 0,0441       | Có    |
+| 5   | Python là ngôn ngữ lập trình.                   | Sinh viên cần nộp đơn trở lại học trước kỳ mới.     | Thấp    | -0,1304      | Có    |
 
 **Kết quả nào bất ngờ nhất? Điều này nói gì về cách embeddings biểu diễn ý nghĩa?**
 
@@ -223,47 +223,47 @@ Hai cặp gần nghĩa trong bộ độc lập (2 và 3) lại có điểm âm. 
 
 ## 5. Kết quả truy xuất của tôi (Competition Results) — Cá nhân (10 điểm)
 
-Tôi chạy đúng 5 câu hỏi chung của G35 trên 10 tài liệu trong `data/quy-dinh-dao-tao/` (50 chunk). Cấu hình: `RecursiveChunker(separators=["\n## ", "\n\n", "\n", ". ", " ", ""], chunk_size=600)`, `top_k=3`, embedding cục bộ `sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2` (384 chiều). Riêng Q5 dùng `metadata_filter={"audience": "student"}` cho cả truy xuất lẫn ngữ cảnh truyền vào agent. Sau khi cài phụ thuộc và tải mô hình vào cache, chạy lại bằng `.venv/bin/python scripts/run_g35_benchmark.py`.
+Tôi chạy đúng 5 câu hỏi chung của G35 trên 10 tài liệu trong `data/quy-dinh-dao-tao/` (50 chunk). Cấu hình: `RecursiveChunker(separators=["\n## ", "\n\n", "\n", ". ", " ", ""], chunk_size=600)`, `top_k=3`, embedding cục bộ `sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2` (384 chiều). Riêng Q5 dùng `metadata_filter={"audience": "student"}` cho cả truy xuất lẫn ngữ cảnh truyền vào agent. Bước trả lời dùng LLM thật `gpt-4.1-mini` qua OpenAI Responses API; lệnh chạy là `LLM_STRATEGY='huong_recursive(600)' .venv/bin/python scripts/compare_strategies.py --llm` sau khi nạp mô hình MiniLM và đặt `OPENAI_API_KEY` trong `.env`. Log đầy đủ nằm trong `report/ket_qua_llm_huong.txt`.
 
 ### Kết quả top-3
 
-| # | Câu hỏi chung của G35 | Top-1: chunk ID (score) | Top-2: chunk ID (score) | Top-3: chunk ID (score) |
-| --- | --- | --- | --- | --- |
-| 1 | Sinh viên được đăng ký tối đa bao nhiêu tín chỉ trong học kỳ hè? | `dieu-10-dang-ky-hoc-tap::chunk_005` (0,6885) | `dieu-19-20-canh-bao-hoc-tap-va-buoc-thoi-hoc::chunk_004` (0,6228) | `dieu-10-dang-ky-hoc-tap::chunk_006` (0,6195) |
-| 2 | Khi nào sinh viên bị buộc thôi học? | `dieu-16-nghi-hoc-tam-thoi-va-thoi-hoc::chunk_006` (0,7248) | `dieu-19-20-canh-bao-hoc-tap-va-buoc-thoi-hoc::chunk_001` (0,6864) | `dieu-16-nghi-hoc-tam-thoi-va-thoi-hoc::chunk_005` (0,6663) |
-| 3 | Nghỉ học tạm thời vì lý do cá nhân thì được nghỉ tối đa bao lâu? | `dieu-16-nghi-hoc-tam-thoi-va-thoi-hoc::chunk_001` (0,7668) | `dieu-16-nghi-hoc-tam-thoi-va-thoi-hoc::chunk_003` (0,7596) | `dieu-16-nghi-hoc-tam-thoi-va-thoi-hoc::chunk_005` (0,7286) |
-| 4 | Điều kiện để được xét công nhận tốt nghiệp là gì? | `dieu-14-15-dang-ky-tot-nghiep-va-hang-tot-nghiep::chunk_002` (0,7368) | `dieu-14-15-dang-ky-tot-nghiep-va-hang-tot-nghiep::chunk_003` (0,7216) | `dieu-14-15-dang-ky-tot-nghiep-va-hang-tot-nghiep::chunk_001` (0,6873) |
-| 5 | Điểm ĐATN được tính từ điểm quá trình và điểm cuối kỳ theo trọng số nào? (`audience=student`) | `dieu-13-dieu-kien-lam-do-an-tot-nghiep::chunk_001` (0,4873) | `dieu-10-dang-ky-hoc-tap::chunk_008` (0,4758) | `dieu-12-danh-gia-ket-qua-hoc-tap::chunk_002` (0,4731) |
+| #   | Câu hỏi chung của G35                                                                         | Top-1: chunk ID (score)                                                | Top-2: chunk ID (score)                                                | Top-3: chunk ID (score)                                                |
+| --- | --------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| 1   | Sinh viên được đăng ký tối đa bao nhiêu tín chỉ trong học kỳ hè?                              | `dieu-10-dang-ky-hoc-tap::chunk_005` (0,6885)                          | `dieu-19-20-canh-bao-hoc-tap-va-buoc-thoi-hoc::chunk_004` (0,6228)     | `dieu-10-dang-ky-hoc-tap::chunk_006` (0,6195)                          |
+| 2   | Khi nào sinh viên bị buộc thôi học?                                                           | `dieu-16-nghi-hoc-tam-thoi-va-thoi-hoc::chunk_006` (0,7248)            | `dieu-19-20-canh-bao-hoc-tap-va-buoc-thoi-hoc::chunk_001` (0,6864)     | `dieu-16-nghi-hoc-tam-thoi-va-thoi-hoc::chunk_005` (0,6663)            |
+| 3   | Nghỉ học tạm thời vì lý do cá nhân thì được nghỉ tối đa bao lâu?                              | `dieu-16-nghi-hoc-tam-thoi-va-thoi-hoc::chunk_001` (0,7668)            | `dieu-16-nghi-hoc-tam-thoi-va-thoi-hoc::chunk_003` (0,7596)            | `dieu-16-nghi-hoc-tam-thoi-va-thoi-hoc::chunk_005` (0,7286)            |
+| 4   | Điều kiện để được xét công nhận tốt nghiệp là gì?                                             | `dieu-14-15-dang-ky-tot-nghiep-va-hang-tot-nghiep::chunk_002` (0,7368) | `dieu-14-15-dang-ky-tot-nghiep-va-hang-tot-nghiep::chunk_003` (0,7216) | `dieu-14-15-dang-ky-tot-nghiep-va-hang-tot-nghiep::chunk_001` (0,6873) |
+| 5   | Điểm ĐATN được tính từ điểm quá trình và điểm cuối kỳ theo trọng số nào? (`audience=student`) | `dieu-13-dieu-kien-lam-do-an-tot-nghiep::chunk_001` (0,4873)           | `dieu-10-dang-ky-hoc-tap::chunk_008` (0,4758)                          | `dieu-12-danh-gia-ket-qua-hoc-tap::chunk_002` (0,4731)                 |
 
 ### Đối chiếu với câu trả lời chuẩn và tự chấm
 
-`KnowledgeBaseAgent` trong lần chạy này được truyền `demo_llm` của `main.py`. Hàm đó trả chuỗi bắt đầu bằng `[DEMO LLM] Generated answer from prompt preview:` rồi lặp lại 400 ký tự đầu của prompt; **nó không tạo câu trả lời nội dung**. Bảng dưới ghi đúng kết quả agent và chấm theo `docs/SCORING.md`: 1 điểm khi top-3 có chunk liên quan nhưng câu trả lời agent thiếu, 0 điểm nếu không có chunk liên quan.
+`KnowledgeBaseAgent` được truyền hàm gọi `gpt-4.1-mini` thật. Bảng dưới chấm theo `docs/SCORING.md`: 2 điểm khi top-1 chứa đáp án và agent trả lời đúng, 1 điểm khi đáp án ở top-2/3, 0 điểm khi top-3 không đủ ngữ cảnh. Câu trả lời đầy đủ và ID chunk nằm trong log LLM; bảng tóm tắt các ý quyết định điểm.
 
-| # | Câu trả lời chuẩn kiểm chứng từ corpus | Câu trả lời thực tế của agent | Chunk liên quan | Điểm / 2 |
-| --- | --- | --- | --- | ---: |
-| 1 | Tối đa **8 TC** trong học kỳ hè (Điều 10 khoản 2a). | Chỉ lặp phần đầu prompt, không nêu 8 TC. | Top-1, đúng khoản 2a. | **1** |
-| 2 | Bị cảnh báo mức 3 lần thứ hai liên tiếp, hoặc học chậm tiến độ quá thời gian cho phép/không còn khả năng tốt nghiệp đúng hạn (Điều 19 khoản 3). | Chỉ lặp phần đầu prompt; preview nêu `doc_id` của đoạn **tự nguyện thôi học** ở hạng 1, không trả lời điều kiện buộc thôi học. | Top-2 thuộc Điều 19 nhưng chỉ là chunk tiêu đề, không chứa hai điều kiện; cả top-3 đều thiếu đáp án. | **0** |
-| 3 | Nghỉ tối đa **04 học kỳ chính** vì lý do cá nhân và thời gian đó tính vào thời gian học chậm tiến độ (Điều 16 khoản 2d). | Chỉ lặp phần đầu prompt, không nêu 04 học kỳ chính. | Top-2, đúng điểm d; top-1 cùng tài liệu nhưng thiếu đáp án. | **1** |
-| 4 | Hoàn thành học phần CTĐT trong thời hạn (kể cả Giáo dục thể chất và Giáo dục quốc phòng–an ninh); đạt chuẩn ngoại ngữ; CPA toàn khóa từ **2,0**; tại thời điểm xét không bị truy cứu trách nhiệm hình sự hoặc không đang bị đình chỉ học tập (Điều 14 khoản 3a–d). | Chỉ lặp phần đầu prompt, không liệt kê 4 điều kiện. | Top-1, chứa đủ 4 điểm a–d. | **1** |
-| 5 | Điểm quá trình **0,5** và điểm cuối kỳ **0,5** (Điều 13 khoản 2a, bản `audience=student`). | Chỉ lặp phần đầu prompt, không nêu hai trọng số. | Top-1, đúng điểm a sau khi lọc. | **1** |
-| **Tổng** | | | | **4 / 10** |
+| #        | Câu trả lời chuẩn kiểm chứng từ corpus                                                                                                                                                                                                                             | Câu trả lời thực tế của agent                                                             | Chunk liên quan                                                               |   Điểm / 2 |
+| -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ---------: |
+| 1        | Tối đa **8 TC** trong học kỳ hè (Điều 10 khoản 2a).                                                                                                                                                                                                                | “Tối đa 8 tín chỉ trong học kỳ hè” **[1]**.                                               | Top-1, đúng khoản 2a.                                                         |      **2** |
+| 2        | Bị cảnh báo mức 3 lần thứ hai liên tiếp, hoặc học chậm tiến độ quá thời gian cho phép/không còn khả năng tốt nghiệp đúng hạn (Điều 19 khoản 3).                                                                                                                    | Nói rõ không tìm thấy thời điểm/điều kiện buộc thôi học trong ngữ cảnh; không bịa đáp án. | Top-2 thuộc Điều 19 nhưng chỉ là chunk tiêu đề; cả top-3 đều thiếu điều kiện. |      **0** |
+| 3        | Nghỉ tối đa **04 học kỳ chính** vì lý do cá nhân và thời gian đó tính vào thời gian học chậm tiến độ (Điều 16 khoản 2d).                                                                                                                                           | Nêu 04 học kỳ chính, tính vào thời gian chậm tiến độ; dẫn **[2]**.                        | Chunk đáp án ở top-2.                                                         |      **1** |
+| 4        | Hoàn thành học phần CTĐT trong thời hạn (kể cả Giáo dục thể chất và Giáo dục quốc phòng–an ninh); đạt chuẩn ngoại ngữ; CPA toàn khóa từ **2,0**; tại thời điểm xét không bị truy cứu trách nhiệm hình sự hoặc không đang bị đình chỉ học tập (Điều 14 khoản 3a–d). | Liệt kê đủ bốn điều kiện a–d; dẫn **[1]**.                                                | Top-1 chứa đủ bốn điều kiện.                                                  |      **2** |
+| 5        | Điểm quá trình **0,5** và điểm cuối kỳ **0,5** (Điều 13 khoản 2a, bản `audience=student`).                                                                                                                                                                         | Nêu đúng hai trọng số 0,5/0,5; dẫn **[1]**.                                               | Top-1 sau khi lọc `student`.                                                  |      **2** |
+| **Tổng** |                                                                                                                                                                                                                                                                    |                                                                                           |                                                                               | **7 / 10** |
 
-**Bao nhiêu câu hỏi có chunk chứa đủ đáp án trong top-3?** **4 / 5**; trong top-1: **3 / 5**. Q2 minh họa vì sao chỉ kiểm `doc_id` sẽ tính nhầm một chunk tiêu đề thành câu trả lời. Điểm 4/10 còn phản ánh giới hạn của agent demo.
+**Bao nhiêu câu hỏi có chunk chứa đủ đáp án trong top-3?** **4 / 5**; trong top-1: **3 / 5**. Q2 minh họa vì sao chỉ kiểm `doc_id` sẽ tính nhầm một chunk tiêu đề thành câu trả lời. Agent thật trả lời đúng cả bốn câu có ngữ cảnh; điểm 7/10 phản ánh hạng của chunk đáp án và trường hợp Q2 không truy xuất được.
 
 ### Kiểm tra nội dung chunk ở CP6
 
 Tôi chạy MiniLM, cùng năm câu và cấu hình Recursive 600 qua `scripts/evaluate_cp6.py`; log chi tiết nằm ở `report/ket_qua_benchmark.txt`. Script khai báo cụm đặc trưng từ văn bản nguồn cho từng đáp án và kiểm tra **cùng một chunk** có đủ cụm, đồng thời thuộc đúng `doc_id`. Bảng trên dùng ID dạng `file::chunk_001`, còn log CP6 dùng `file#0`; chúng chỉ khác cách đánh số (1-based và 0-based), nội dung và thứ hạng trùng nhau.
 
-| Câu | Hạng đầu tiên của đúng `doc_id` | Hạng chunk đúng nguồn và đủ nội dung | Điểm truy xuất tham khảo |
-|---|---:|---:|---:|
-| Q1 | 1 | 1 | 2/2 |
-| Q2 | 2 | Không có | 0/2 |
-| Q3 | 1 | 2 | 1/2 |
-| Q4 | 1 | 1 | 2/2 |
-| Q5, có lọc `student` | 1 | 1 | 2/2 |
-| **Tổng** | | | **7/10** |
+| Câu                  | Hạng đầu tiên của đúng `doc_id` | Hạng chunk đúng nguồn và đủ nội dung | Điểm truy xuất tham khảo |
+| -------------------- | ------------------------------: | -----------------------------------: | -----------------------: |
+| Q1                   |                               1 |                                    1 |                      2/2 |
+| Q2                   |                               2 |                             Không có |                      0/2 |
+| Q3                   |                               1 |                                    2 |                      1/2 |
+| Q4                   |                               1 |                                    1 |                      2/2 |
+| Q5, có lọc `student` |                               1 |                                    1 |                      2/2 |
+| **Tổng**             |                                 |                                      |                 **7/10** |
 
-Đây là **điểm truy xuất có thể trả lời**, không phải điểm agent theo rubric: `demo_llm` không sinh câu trả lời thật nên điểm phần agent vẫn là 4/10 như bảng trước. Nếu chấm chỉ theo `doc_id`, sẽ bỏ qua lỗi Q2: đúng tài liệu ở top-2 nhưng chunk không chứa hai điều kiện buộc thôi học. Sau khi sửa cách gắn separator `"\n## "` vào **đầu section kế tiếp**, tôi chạy lại toàn bộ; 50 chunk vẫn giữ nguyên nhưng thứ hạng và điểm thay đổi so với phép đo cũ.
+Điểm 7/10 ở bảng CP6 là **ước lượng theo truy xuất**; lần chạy LLM thật ở trên xác nhận đúng các câu có đủ ngữ cảnh nên điểm rubric cũng là 7/10. Nếu chấm chỉ theo `doc_id`, sẽ bỏ qua lỗi Q2: đúng tài liệu ở top-2 nhưng chunk không chứa hai điều kiện buộc thôi học. Sau khi sửa cách gắn separator `"\n## "` vào **đầu section kế tiếp**, tôi chạy lại toàn bộ; 50 chunk vẫn giữ nguyên nhưng thứ hạng và điểm thay đổi so với phép đo cũ.
 
 A/B Q5 với Recursive: khi **không lọc**, top-3 lần lượt là ba chunk của `dieu-13-cham-diem-do-an-tot-nghiep` (`#1` 0,6761; `#2` 0,5729; `#3` 0,5712), đều mang `audience=faculty`; chunk đúng nguồn sinh viên vắng mặt. Khi **lọc `audience=student`**, `dieu-13-dieu-kien-lam-do-an-tot-nghiep#0` lên hạng 1 (0,4873). Tuy vậy, chunk faculty ở hạng 1 cũng chứa trọng số 0,5/0,5, nên filter đổi **nguồn trích dẫn**, chưa đổi đáp án số học. Bộ câu cần được nhóm điều chỉnh để kiểm tra tác động của filter lên độ đúng của câu trả lời.
 
@@ -279,9 +279,9 @@ A/B Q5 với Recursive: khi **không lọc**, top-3 lần lượt là ba chunk c
 
 | Tiêu chí                                        | Điểm tự đánh giá |
 | ----------------------------------------------- | ---------------- |
-| Khởi động (Warm-up)                             | / 5              |
-| Hướng tiếp cận của tôi (My Approach)            | / 10             |
-| Hoàn thiện code (Core Implementation — tests)   | / 30             |
-| Dự đoán độ tương tự (Similarity Predictions)    | / 5              |
-| Kết quả truy xuất của tôi (Competition Results) | 4 / 10             |
-| **Tổng phần cá nhân**                           | **/ 60**         |
+| Khởi động (Warm-up)                             | 5/ 5             |
+| Hướng tiếp cận của tôi (My Approach)            | 9/ 10            |
+| Hoàn thiện code (Core Implementation — tests)   | 30/ 30           |
+| Dự đoán độ tương tự (Similarity Predictions)    | 5/ 5             |
+| Kết quả truy xuất của tôi (Competition Results) | 7 / 10           |
+| **Tổng phần cá nhân**                           | 56/ 60\*\*       |
