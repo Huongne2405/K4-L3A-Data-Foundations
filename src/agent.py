@@ -14,9 +14,36 @@ class KnowledgeBaseAgent:
     """
 
     def __init__(self, store: EmbeddingStore, llm_fn: Callable[[str], str]) -> None:
-        # TODO: store references to store and llm_fn
-        pass
+        self.store = store
+        self.llm_fn = llm_fn
 
     def answer(self, question: str, top_k: int = 3) -> str:
-        # TODO: retrieve chunks, build prompt, call llm_fn
-        raise NotImplementedError("Implement KnowledgeBaseAgent.answer")
+        if self.store.get_collection_size() == 0:
+            return "Không tìm thấy ngữ cảnh trong kho tri thức."
+
+        results = self.store.search(question, top_k=top_k)
+        if not results:
+            return "Không tìm thấy ngữ cảnh liên quan đến câu hỏi."
+
+        context_parts: list[str] = []
+        for index, record in enumerate(results, start=1):
+            metadata = record.get("metadata") or {}
+            source = (
+                metadata.get("source_url")
+                or metadata.get("doc_id")
+                or record.get("id")
+                or "unknown"
+            )
+            content = str(record.get("content", "")).strip()
+            context_parts.append(f"[{index}] (nguồn: {source})\n{content}")
+
+        context = "\n\n".join(context_parts)
+        prompt = (
+            "Bạn chỉ được trả lời dựa trên ngữ cảnh bên dưới. "
+            "Không bịa thông tin. Nếu ngữ cảnh không đủ, nói rõ là không tìm thấy. "
+            "Khi dùng một đoạn, trích dẫn số chunk tương ứng, ví dụ [1] hoặc [2].\n\n"
+            f"Ngữ cảnh:\n{context}\n\n"
+            f"Câu hỏi: {question}\n\n"
+            "Câu trả lời:"
+        )
+        return self.llm_fn(prompt)
