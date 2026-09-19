@@ -28,14 +28,18 @@ class KnowledgeBaseAgent:
         context_parts: list[str] = []
         for index, record in enumerate(results, start=1):
             metadata = record.get("metadata") or {}
+            chunk_id = record.get("id") or "unknown"
+            doc_id = metadata.get("doc_id") or chunk_id
             source = (
                 metadata.get("source_url")
-                or metadata.get("doc_id")
-                or record.get("id")
+                or metadata.get("source")
+                or doc_id
                 or "unknown"
             )
             content = str(record.get("content", "")).strip()
-            context_parts.append(f"[{index}] (nguồn: {source})\n{content}")
+            context_parts.append(
+                f"[{index}] (doc_id: {doc_id}; chunk_id: {chunk_id}; nguồn: {source})\n{content}"
+            )
 
         context = "\n\n".join(context_parts)
         prompt = (

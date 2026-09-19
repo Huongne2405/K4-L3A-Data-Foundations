@@ -9,10 +9,9 @@ from .models import Document
 
 class EmbeddingStore:
     """
-    A vector store for text chunks.
+    An in-memory vector store for text chunks.
 
-    Tries to use ChromaDB if available; falls back to an in-memory store.
-    The embedding_fn parameter allows injection of mock embeddings for tests.
+    The embedding_fn parameter allows injection of a real or mock embedder.
     """
 
     def __init__(
@@ -22,16 +21,14 @@ class EmbeddingStore:
     ) -> None:
         self._embedding_fn = embedding_fn or _mock_embed
         self._collection_name = collection_name
-        # Stay in-memory even if chromadb is installed; tests never require it.
-        self._use_chroma = False
         self._store: list[dict[str, Any]] = []
-        self._collection = None
-        self._next_index = 0
 
     def _make_record(self, doc: Document) -> dict[str, Any]:
         metadata = dict(doc.metadata or {})
-        if "doc_id" not in metadata:
-            metadata["doc_id"] = doc.id
+        if not metadata.get("doc_id"):
+            # Chunk IDs such as "file#0" still belong to the source document "file".
+            source_id, marker, chunk_number = doc.id.rpartition("#")
+            metadata["doc_id"] = source_id if marker and chunk_number.isdigit() else doc.id
         return {
             "id": doc.id,
             "content": doc.content,
@@ -40,6 +37,8 @@ class EmbeddingStore:
         }
 
     def _search_records(self, query: str, records: list[dict[str, Any]], top_k: int) -> list[dict[str, Any]]:
+        if top_k <= 0 or not records:
+            return []
         query_vec = self._embedding_fn(query)
         ranked: list[dict[str, Any]] = []
         for record in records:
@@ -54,12 +53,7 @@ class EmbeddingStore:
         return ranked[: max(0, top_k)]
 
     def add_documents(self, docs: list[Document]) -> None:
-        """
-        Embed each document's content and store it.
-
-        For ChromaDB: use collection.add(ids=[...], documents=[...], embeddings=[...])
-        For in-memory: append dicts to self._store
-        """
+        """Embed each document's content and store it in memory."""
         for doc in docs:
             self._store.append(self._make_record(doc))
 

@@ -16,6 +16,10 @@ class FixedSizeChunker:
     """
 
     def __init__(self, chunk_size: int = 500, overlap: int = 50) -> None:
+        if chunk_size <= 0:
+            raise ValueError("chunk_size must be positive")
+        if not 0 <= overlap < chunk_size:
+            raise ValueError("overlap must be between 0 and chunk_size - 1")
         self.chunk_size = chunk_size
         self.overlap = overlap
 
@@ -77,6 +81,8 @@ class RecursiveChunker:
     DEFAULT_SEPARATORS = ["\n\n", "\n", ". ", " ", ""]
 
     def __init__(self, separators: list[str] | None = None, chunk_size: int = 500) -> None:
+        if chunk_size <= 0:
+            raise ValueError("chunk_size must be positive")
         self.separators = self.DEFAULT_SEPARATORS if separators is None else list(separators)
         self.chunk_size = chunk_size
 
@@ -105,30 +111,77 @@ class RecursiveChunker:
         if len(pieces) == 1:
             return self._split(current_text, next_separators)
 
+        # A Markdown heading marker belongs to the section that follows it.
+        # Other separators remain with the preceding piece. Either way, the
+        # original text is preserved without dropping a boundary character.
+        if separator == "\n## ":
+            units = [pieces[0]] + [separator + piece for piece in pieces[1:]]
+        else:
+            units = [piece + separator for piece in pieces[:-1]] + [pieces[-1]]
         chunks: list[str] = []
         current = ""
-        for piece in pieces:
-            if len(piece) > self.chunk_size:
+        for unit in units:
+            if len(unit) > self.chunk_size:
                 if current:
                     chunks.append(current)
                     current = ""
-                chunks.extend(self._split(piece, next_separators))
+                chunks.extend(self._split(unit, next_separators))
                 continue
 
-            candidate = piece if not current else current + separator + piece
+            candidate = current + unit
             if len(candidate) <= self.chunk_size:
                 current = candidate
             else:
                 if current:
                     chunks.append(current)
-                current = piece
+                current = unit
 
         if current:
             chunks.append(current)
         return chunks
 
 
+class HeadingSectionChunker:
+    """Keep each Markdown ``##`` section together when it fits.
+
+    Long sections use recursive splitting, with their heading repeated on every
+    piece so retrieved text remains meaningful outside its original document.
+    """
+
+    def __init__(self, chunk_size: int = 600) -> None:
+        if chunk_size <= 0:
+            raise ValueError("chunk_size must be positive")
+        self.chunk_size = chunk_size
+
+    def chunk(self, text: str) -> list[str]:
+        if not text.strip():
+            return []
+
+        chunks: list[str] = []
+        for section in re.split(r"(?=^## )", text, flags=re.MULTILINE):
+            section = section.strip()
+            if not section:
+                continue
+            if not section.startswith("## "):
+                chunks.extend(RecursiveChunker(chunk_size=self.chunk_size).chunk(section))
+                continue
+
+            heading, _, body = section.partition("\n")
+            if len(heading) >= self.chunk_size:
+                raise ValueError("section heading must be shorter than chunk_size")
+            if len(section) <= self.chunk_size:
+                chunks.append(section)
+                continue
+
+            budget = self.chunk_size - len(heading) - 1
+            for piece in RecursiveChunker(chunk_size=budget).chunk(body.strip()):
+                chunks.append(f"{heading}\n{piece.strip()}")
+        return chunks
+
+
 def _dot(a: list[float], b: list[float]) -> float:
+    if len(a) != len(b):
+        raise ValueError("vectors must have the same number of dimensions")
     return sum(x * y for x, y in zip(a, b))
 
 

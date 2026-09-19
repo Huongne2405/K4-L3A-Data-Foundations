@@ -1,0 +1,129 @@
+Embedding backend: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+Sources: 10
+Top-k: 3
+
+=== fixed_600_overlap_50 | chunks=39 ===
+Q1: Sinh viên được đăng ký tối đa bao nhiêu tín chỉ trong học kỳ hè?
+  gold: 8 TC (Điều 10 khoản 2a)
+  filter: None
+  gold_doc_rank=1 answer_chunk_rank=1 source_answer_rank=1 context_answerable=True retrieval_score=2/2
+  1. id=dieu-10-dang-ky-hoc-tap#3 doc_id=dieu-10-dang-ky-hoc-tap score=0.7838 answer_cues=True
+  2. id=dieu-10-dang-ky-hoc-tap#2 doc_id=dieu-10-dang-ky-hoc-tap score=0.7134 answer_cues=False
+  3. id=dieu-10-dang-ky-hoc-tap#4 doc_id=dieu-10-dang-ky-hoc-tap score=0.6534 answer_cues=False
+Q2: Khi nào sinh viên bị buộc thôi học?
+  gold: Cảnh báo mức 3 lần thứ hai liên tiếp, hoặc chậm tiến độ quá thời gian cho phép/không còn khả năng tốt nghiệp đúng hạn (Điều 19 khoản 3)
+  filter: None
+  gold_doc_rank=None answer_chunk_rank=None source_answer_rank=None context_answerable=False retrieval_score=0/2
+  1. id=dieu-16-nghi-hoc-tam-thoi-va-thoi-hoc#4 doc_id=dieu-16-nghi-hoc-tam-thoi-va-thoi-hoc score=0.7328 answer_cues=False
+  2. id=dieu-16-nghi-hoc-tam-thoi-va-thoi-hoc#3 doc_id=dieu-16-nghi-hoc-tam-thoi-va-thoi-hoc score=0.6917 answer_cues=False
+  3. id=dieu-16-nghi-hoc-tam-thoi-va-thoi-hoc#2 doc_id=dieu-16-nghi-hoc-tam-thoi-va-thoi-hoc score=0.6545 answer_cues=False
+Q3: Nghỉ học tạm thời vì lý do cá nhân thì được nghỉ tối đa bao lâu?
+  gold: 04 học kỳ chính, tính vào thời gian học chậm tiến độ (Điều 16 khoản 2d)
+  filter: None
+  gold_doc_rank=1 answer_chunk_rank=2 source_answer_rank=2 context_answerable=True retrieval_score=1/2
+  1. id=dieu-16-nghi-hoc-tam-thoi-va-thoi-hoc#0 doc_id=dieu-16-nghi-hoc-tam-thoi-va-thoi-hoc score=0.7622 answer_cues=False
+  2. id=dieu-16-nghi-hoc-tam-thoi-va-thoi-hoc#1 doc_id=dieu-16-nghi-hoc-tam-thoi-va-thoi-hoc score=0.7472 answer_cues=True
+  3. id=dieu-16-nghi-hoc-tam-thoi-va-thoi-hoc#2 doc_id=dieu-16-nghi-hoc-tam-thoi-va-thoi-hoc score=0.7128 answer_cues=False
+Q4: Điều kiện để được xét công nhận tốt nghiệp là gì?
+  gold: Hoàn thành học phần CTĐT gồm GDTC và GDQP-AN; đạt chuẩn ngoại ngữ; điểm trung bình tích lũy toàn khóa từ 2,0; tại thời điểm xét tốt nghiệp không bị truy cứu trách nhiệm hình sự hoặc không đang bị đình chỉ học tập (Điều 14 khoản 3a–d)
+  filter: None
+  gold_doc_rank=1 answer_chunk_rank=1 source_answer_rank=1 context_answerable=True retrieval_score=2/2
+  1. id=dieu-14-15-dang-ky-tot-nghiep-va-hang-tot-nghiep#1 doc_id=dieu-14-15-dang-ky-tot-nghiep-va-hang-tot-nghiep score=0.7857 answer_cues=True
+  2. id=dieu-14-15-dang-ky-tot-nghiep-va-hang-tot-nghiep#2 doc_id=dieu-14-15-dang-ky-tot-nghiep-va-hang-tot-nghiep score=0.6980 answer_cues=False
+  3. id=dieu-14-15-dang-ky-tot-nghiep-va-hang-tot-nghiep#0 doc_id=dieu-14-15-dang-ky-tot-nghiep-va-hang-tot-nghiep score=0.6873 answer_cues=False
+Q5: Điểm ĐATN được tính từ điểm quá trình và điểm cuối kỳ theo trọng số nào?
+  gold: 0,5 cho điểm quá trình và 0,5 cho điểm cuối kỳ (Điều 13 khoản 2a)
+  filter: {'audience': 'student'}
+  gold_doc_rank=1 answer_chunk_rank=1 source_answer_rank=1 context_answerable=True retrieval_score=2/2
+  1. id=dieu-13-dieu-kien-lam-do-an-tot-nghiep#0 doc_id=dieu-13-dieu-kien-lam-do-an-tot-nghiep score=0.4873 answer_cues=True
+  2. id=dieu-10-dang-ky-hoc-tap#5 doc_id=dieu-10-dang-ky-hoc-tap score=0.4774 answer_cues=False
+  3. id=dieu-12-danh-gia-ket-qua-hoc-tap#1 doc_id=dieu-12-danh-gia-ket-qua-hoc-tap score=0.4663 answer_cues=False
+  A/B no filter: gold_doc_rank=2 answer_chunk_rank=1 source_answer_rank=2 context_answerable=True retrieval_score=1/2
+  1. id=dieu-13-cham-diem-do-an-tot-nghiep#0 doc_id=dieu-13-cham-diem-do-an-tot-nghiep score=0.6318 answer_cues=True
+  2. id=dieu-13-dieu-kien-lam-do-an-tot-nghiep#0 doc_id=dieu-13-dieu-kien-lam-do-an-tot-nghiep score=0.4873 answer_cues=True
+  3. id=dieu-10-dang-ky-hoc-tap#5 doc_id=dieu-10-dang-ky-hoc-tap score=0.4774 answer_cues=False
+TOTAL retrieval proxy: 7/10 (LLM answer not measured)
+
+=== recursive_600 | chunks=50 ===
+Q1: Sinh viên được đăng ký tối đa bao nhiêu tín chỉ trong học kỳ hè?
+  gold: 8 TC (Điều 10 khoản 2a)
+  filter: None
+  gold_doc_rank=1 answer_chunk_rank=1 source_answer_rank=1 context_answerable=True retrieval_score=2/2
+  1. id=dieu-10-dang-ky-hoc-tap#4 doc_id=dieu-10-dang-ky-hoc-tap score=0.6885 answer_cues=True
+  2. id=dieu-19-20-canh-bao-hoc-tap-va-buoc-thoi-hoc#3 doc_id=dieu-19-20-canh-bao-hoc-tap-va-buoc-thoi-hoc score=0.6228 answer_cues=False
+  3. id=dieu-10-dang-ky-hoc-tap#5 doc_id=dieu-10-dang-ky-hoc-tap score=0.6195 answer_cues=False
+Q2: Khi nào sinh viên bị buộc thôi học?
+  gold: Cảnh báo mức 3 lần thứ hai liên tiếp, hoặc chậm tiến độ quá thời gian cho phép/không còn khả năng tốt nghiệp đúng hạn (Điều 19 khoản 3)
+  filter: None
+  gold_doc_rank=2 answer_chunk_rank=None source_answer_rank=None context_answerable=False retrieval_score=0/2
+  1. id=dieu-16-nghi-hoc-tam-thoi-va-thoi-hoc#5 doc_id=dieu-16-nghi-hoc-tam-thoi-va-thoi-hoc score=0.7248 answer_cues=False
+  2. id=dieu-19-20-canh-bao-hoc-tap-va-buoc-thoi-hoc#0 doc_id=dieu-19-20-canh-bao-hoc-tap-va-buoc-thoi-hoc score=0.6864 answer_cues=False
+  3. id=dieu-16-nghi-hoc-tam-thoi-va-thoi-hoc#4 doc_id=dieu-16-nghi-hoc-tam-thoi-va-thoi-hoc score=0.6663 answer_cues=False
+Q3: Nghỉ học tạm thời vì lý do cá nhân thì được nghỉ tối đa bao lâu?
+  gold: 04 học kỳ chính, tính vào thời gian học chậm tiến độ (Điều 16 khoản 2d)
+  filter: None
+  gold_doc_rank=1 answer_chunk_rank=2 source_answer_rank=2 context_answerable=True retrieval_score=1/2
+  1. id=dieu-16-nghi-hoc-tam-thoi-va-thoi-hoc#0 doc_id=dieu-16-nghi-hoc-tam-thoi-va-thoi-hoc score=0.7668 answer_cues=False
+  2. id=dieu-16-nghi-hoc-tam-thoi-va-thoi-hoc#2 doc_id=dieu-16-nghi-hoc-tam-thoi-va-thoi-hoc score=0.7596 answer_cues=True
+  3. id=dieu-16-nghi-hoc-tam-thoi-va-thoi-hoc#4 doc_id=dieu-16-nghi-hoc-tam-thoi-va-thoi-hoc score=0.7286 answer_cues=False
+Q4: Điều kiện để được xét công nhận tốt nghiệp là gì?
+  gold: Hoàn thành học phần CTĐT gồm GDTC và GDQP-AN; đạt chuẩn ngoại ngữ; điểm trung bình tích lũy toàn khóa từ 2,0; tại thời điểm xét tốt nghiệp không bị truy cứu trách nhiệm hình sự hoặc không đang bị đình chỉ học tập (Điều 14 khoản 3a–d)
+  filter: None
+  gold_doc_rank=1 answer_chunk_rank=1 source_answer_rank=1 context_answerable=True retrieval_score=2/2
+  1. id=dieu-14-15-dang-ky-tot-nghiep-va-hang-tot-nghiep#1 doc_id=dieu-14-15-dang-ky-tot-nghiep-va-hang-tot-nghiep score=0.7368 answer_cues=True
+  2. id=dieu-14-15-dang-ky-tot-nghiep-va-hang-tot-nghiep#2 doc_id=dieu-14-15-dang-ky-tot-nghiep-va-hang-tot-nghiep score=0.7216 answer_cues=False
+  3. id=dieu-14-15-dang-ky-tot-nghiep-va-hang-tot-nghiep#0 doc_id=dieu-14-15-dang-ky-tot-nghiep-va-hang-tot-nghiep score=0.6873 answer_cues=False
+Q5: Điểm ĐATN được tính từ điểm quá trình và điểm cuối kỳ theo trọng số nào?
+  gold: 0,5 cho điểm quá trình và 0,5 cho điểm cuối kỳ (Điều 13 khoản 2a)
+  filter: {'audience': 'student'}
+  gold_doc_rank=1 answer_chunk_rank=1 source_answer_rank=1 context_answerable=True retrieval_score=2/2
+  1. id=dieu-13-dieu-kien-lam-do-an-tot-nghiep#0 doc_id=dieu-13-dieu-kien-lam-do-an-tot-nghiep score=0.4873 answer_cues=True
+  2. id=dieu-10-dang-ky-hoc-tap#7 doc_id=dieu-10-dang-ky-hoc-tap score=0.4758 answer_cues=False
+  3. id=dieu-12-danh-gia-ket-qua-hoc-tap#1 doc_id=dieu-12-danh-gia-ket-qua-hoc-tap score=0.4731 answer_cues=False
+  A/B no filter: gold_doc_rank=None answer_chunk_rank=1 source_answer_rank=None context_answerable=True retrieval_score=0/2
+  1. id=dieu-13-cham-diem-do-an-tot-nghiep#1 doc_id=dieu-13-cham-diem-do-an-tot-nghiep score=0.6761 answer_cues=True
+  2. id=dieu-13-cham-diem-do-an-tot-nghiep#2 doc_id=dieu-13-cham-diem-do-an-tot-nghiep score=0.5729 answer_cues=False
+  3. id=dieu-13-cham-diem-do-an-tot-nghiep#3 doc_id=dieu-13-cham-diem-do-an-tot-nghiep score=0.5712 answer_cues=False
+TOTAL retrieval proxy: 7/10 (LLM answer not measured)
+
+=== heading_600 | chunks=70 ===
+Q1: Sinh viên được đăng ký tối đa bao nhiêu tín chỉ trong học kỳ hè?
+  gold: 8 TC (Điều 10 khoản 2a)
+  filter: None
+  gold_doc_rank=1 answer_chunk_rank=1 source_answer_rank=1 context_answerable=True retrieval_score=2/2
+  1. id=dieu-10-dang-ky-hoc-tap#5 doc_id=dieu-10-dang-ky-hoc-tap score=0.6865 answer_cues=True
+  2. id=dieu-14-15-dang-ky-tot-nghiep-va-hang-tot-nghiep#6 doc_id=dieu-14-15-dang-ky-tot-nghiep-va-hang-tot-nghiep score=0.6378 answer_cues=False
+  3. id=dieu-19-20-canh-bao-hoc-tap-va-buoc-thoi-hoc#3 doc_id=dieu-19-20-canh-bao-hoc-tap-va-buoc-thoi-hoc score=0.6228 answer_cues=False
+Q2: Khi nào sinh viên bị buộc thôi học?
+  gold: Cảnh báo mức 3 lần thứ hai liên tiếp, hoặc chậm tiến độ quá thời gian cho phép/không còn khả năng tốt nghiệp đúng hạn (Điều 19 khoản 3)
+  filter: None
+  gold_doc_rank=2 answer_chunk_rank=None source_answer_rank=None context_answerable=False retrieval_score=0/2
+  1. id=dieu-16-nghi-hoc-tam-thoi-va-thoi-hoc#7 doc_id=dieu-16-nghi-hoc-tam-thoi-va-thoi-hoc score=0.7248 answer_cues=False
+  2. id=dieu-19-20-canh-bao-hoc-tap-va-buoc-thoi-hoc#0 doc_id=dieu-19-20-canh-bao-hoc-tap-va-buoc-thoi-hoc score=0.6864 answer_cues=False
+  3. id=dieu-11-cong-nhan-chuyen-doi-tin-chi#5 doc_id=dieu-11-cong-nhan-chuyen-doi-tin-chi score=0.6722 answer_cues=False
+Q3: Nghỉ học tạm thời vì lý do cá nhân thì được nghỉ tối đa bao lâu?
+  gold: 04 học kỳ chính, tính vào thời gian học chậm tiến độ (Điều 16 khoản 2d)
+  filter: None
+  gold_doc_rank=1 answer_chunk_rank=1 source_answer_rank=1 context_answerable=True retrieval_score=2/2
+  1. id=dieu-16-nghi-hoc-tam-thoi-va-thoi-hoc#3 doc_id=dieu-16-nghi-hoc-tam-thoi-va-thoi-hoc score=0.7562 answer_cues=True
+  2. id=dieu-16-nghi-hoc-tam-thoi-va-thoi-hoc#5 doc_id=dieu-16-nghi-hoc-tam-thoi-va-thoi-hoc score=0.7371 answer_cues=False
+  3. id=dieu-16-nghi-hoc-tam-thoi-va-thoi-hoc#1 doc_id=dieu-16-nghi-hoc-tam-thoi-va-thoi-hoc score=0.7193 answer_cues=False
+Q4: Điều kiện để được xét công nhận tốt nghiệp là gì?
+  gold: Hoàn thành học phần CTĐT gồm GDTC và GDQP-AN; đạt chuẩn ngoại ngữ; điểm trung bình tích lũy toàn khóa từ 2,0; tại thời điểm xét tốt nghiệp không bị truy cứu trách nhiệm hình sự hoặc không đang bị đình chỉ học tập (Điều 14 khoản 3a–d)
+  filter: None
+  gold_doc_rank=2 answer_chunk_rank=2 source_answer_rank=2 context_answerable=True retrieval_score=1/2
+  1. id=dieu-13-dieu-kien-lam-do-an-tot-nghiep#0 doc_id=dieu-13-dieu-kien-lam-do-an-tot-nghiep score=0.7572 answer_cues=False
+  2. id=dieu-14-15-dang-ky-tot-nghiep-va-hang-tot-nghiep#3 doc_id=dieu-14-15-dang-ky-tot-nghiep-va-hang-tot-nghiep score=0.7368 answer_cues=True
+  3. id=dieu-14-15-dang-ky-tot-nghiep-va-hang-tot-nghiep#4 doc_id=dieu-14-15-dang-ky-tot-nghiep-va-hang-tot-nghiep score=0.7216 answer_cues=False
+Q5: Điểm ĐATN được tính từ điểm quá trình và điểm cuối kỳ theo trọng số nào?
+  gold: 0,5 cho điểm quá trình và 0,5 cho điểm cuối kỳ (Điều 13 khoản 2a)
+  filter: {'audience': 'student'}
+  gold_doc_rank=1 answer_chunk_rank=1 source_answer_rank=1 context_answerable=True retrieval_score=2/2
+  1. id=dieu-13-dieu-kien-lam-do-an-tot-nghiep#2 doc_id=dieu-13-dieu-kien-lam-do-an-tot-nghiep score=0.6806 answer_cues=True
+  2. id=dieu-10-dang-ky-hoc-tap#9 doc_id=dieu-10-dang-ky-hoc-tap score=0.4758 answer_cues=False
+  3. id=dieu-12-danh-gia-ket-qua-hoc-tap#2 doc_id=dieu-12-danh-gia-ket-qua-hoc-tap score=0.4731 answer_cues=False
+  A/B no filter: gold_doc_rank=1 answer_chunk_rank=1 source_answer_rank=1 context_answerable=True retrieval_score=2/2
+  1. id=dieu-13-dieu-kien-lam-do-an-tot-nghiep#2 doc_id=dieu-13-dieu-kien-lam-do-an-tot-nghiep score=0.6806 answer_cues=True
+  2. id=dieu-13-cham-diem-do-an-tot-nghiep#1 doc_id=dieu-13-cham-diem-do-an-tot-nghiep score=0.6761 answer_cues=True
+  3. id=dieu-13-cham-diem-do-an-tot-nghiep#3 doc_id=dieu-13-cham-diem-do-an-tot-nghiep score=0.6113 answer_cues=False
+TOTAL retrieval proxy: 7/10 (LLM answer not measured)

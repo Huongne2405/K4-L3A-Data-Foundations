@@ -13,11 +13,17 @@ EMBEDDING_PROVIDER_ENV = "EMBEDDING_PROVIDER"
 
 
 class MockEmbedder:
-    """Deterministic embedding backend used by tests and default classroom runs."""
+    """Deterministic test vector, not a semantic text embedding.
+
+    Hashing the entire input means even small wording changes can produce
+    unrelated vectors. Use a real embedding backend for retrieval evaluation.
+    """
 
     def __init__(self, dim: int = 64) -> None:
+        if dim <= 0:
+            raise ValueError("dim must be positive")
         self.dim = dim
-        self._backend_name = "mock embeddings fallback"
+        self._backend_name = "mock embeddings (non-semantic fallback)"
 
     def __call__(self, text: str) -> list[float]:
         digest = hashlib.md5(text.encode()).hexdigest()
